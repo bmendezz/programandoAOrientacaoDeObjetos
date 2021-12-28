@@ -6,18 +6,25 @@ const cliente1 = new Cliente()
 cliente1.nome = "Ricardo"
 cliente1.cpf = 11122233309
 
+
 const cliente2 = new Cliente()
 
 cliente2.nome = "Alice"
 cliente2.cpf = 88822233309
 
 
-const ContaCorrenteRicardo = new ContaCorrente()
+const contaCorrenteRicardo = new ContaCorrente()
+contaCorrenteRicardo.agencia = 1001;
+contaCorrenteRicardo.cliente = cliente1;
+contaCorrenteRicardo.depositar(1000)
 
-ContaCorrenteRicardo.agencia = 1001;
+const contaCorrenteAlice = new ContaCorrente()
+contaCorrenteAlice.agencia = 1002;
+contaCorrenteAlice.cliente = cliente2;
 
-ContaCorrenteRicardo.depositar(100)
-const valorSacado = ContaCorrenteRicardo.sacar(50);
+contaCorrenteRicardo.transferir(500, contaCorrenteAlice)
 
-console.log(`O Valor sacado é R$${ valorSacado}`)
-console.log(ContaCorrenteRicardo)
+
+//console.log(`O Valor sacado é R$${ valorSacado }`)
+console.log(contaCorrenteRicardo)
+console.log(contaCorrenteAlice)
