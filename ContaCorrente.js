@@ -9,17 +9,20 @@ export class ContaCorrente {
     // setter
     set cliente(novoValor){
         if(novoValor instanceof Cliente){
-            this._cliente = novoValor;
+        this._cliente = novoValor;
         }
 
     } 
+
+    get cliente(){
+        return this._cliente;
+    }
 
     sacar(valor){
         if (this._saldo >= valor) {
             this._saldo -= valor;
             return valor;
         }
-        return
     }
 
     depositar(valor){
@@ -31,6 +34,11 @@ export class ContaCorrente {
     transferir(valor, conta){
         const valorSacado = this.sacar(valor);
         conta.depositar(valorSacado)
+    }
+    
+    constructor(cliente, agencia){
+        this._cliente = cliente;
+        this.agencia = agencia;
     }
 
     
